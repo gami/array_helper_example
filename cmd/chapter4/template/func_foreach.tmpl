@@ -1,0 +1,15 @@
+{{define "foreach"}}
+
+// ForEach はスライスの要素それぞれに対して、一度ずつ引数で与えられた関数を実行します
+func (a {{.Arr}}) ForEach(f func(o *{{.Typ}}) error) error {
+	for _, o := range a {
+		err := f(o)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+{{end}}

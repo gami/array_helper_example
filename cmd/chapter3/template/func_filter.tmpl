@@ -1,0 +1,15 @@
+{{define "filter"}}
+
+// Filter はスライスの各要素を引数で与えられた関数でテストし、結果が真になるものだけを絞り込んだ新たなスライスを生成します
+func (a {{.Arr}}) Filter(f func(o *{{.Typ}}) bool) {{.Arr}} {
+	res := make({{.Arr}}, 0)
+	for _, o := range a {
+		if f(o) {
+			res = append(res, o)
+		}
+	}
+
+	return res
+}
+
+{{end}}

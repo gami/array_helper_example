@@ -1,0 +1,13 @@
+{{define "map"}}
+
+// Map は与えられた関数に対してスライスの全要素を処理し、その結果からなる新たなスライスを生成します
+func (a {{.Arr}}) Map(f func(o *{{.Typ}}) interface{}) []interface{} {
+	res := make([]interface{}, 0, len(a))
+	for _, o := range a {
+		res = append(res, f(o))
+	}
+
+	return res
+}
+
+{{end}}

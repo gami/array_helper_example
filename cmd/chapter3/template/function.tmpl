@@ -1,0 +1,18 @@
+{{define "function"}}
+{{- $f := .}}
+
+{{template "header" $f}}
+
+type {{.Arr}} []*{{.Typ}}
+
+{{template "filter" $f}}
+
+{{template "foreach" $f}}
+
+{{template "map" $f}}
+
+{{template "some" $f}}
+
+{{template "every" $f}}
+
+{{end}}

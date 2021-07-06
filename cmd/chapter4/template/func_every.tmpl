@@ -1,0 +1,14 @@
+{{define "every"}}
+
+// Every はスライスの全要素が、与えられた関数の結果が真になるかどうかをチェックします
+func (a {{.Arr}}) Every(f func(o *{{.Typ}}) bool) bool {
+	for _, o := range a {
+		if f(o) {
+			return false
+		}
+	}
+
+	return true
+}
+
+{{end}}

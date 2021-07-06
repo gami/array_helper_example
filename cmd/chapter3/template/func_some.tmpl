@@ -1,0 +1,14 @@
+{{define "some"}}
+
+// Some はスライスの要素の中で、与えられた関数の結果が真になるものが存在するかどうかをチェックします
+func (a {{.Arr}}) Some(f func(o *{{.Typ}}) bool) bool {
+	for _, o := range a {
+		if f(u) {
+			return true
+		}
+	}
+
+	return false
+}
+
+{{end}}

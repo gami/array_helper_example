@@ -1,0 +1,19 @@
+{{define "fields"}}
+
+{{$obj := .}}
+
+{{range .Fields}}
+
+// {{.Name}}s はスライスの要素の{{.Name}}フィールドのみを抽出した新たなスライスを生成します
+func (a {{$obj.Arr}}) {{.Name}}s() []{{if .IsStar}}*{{end}}{{.Typ}} {
+	res := make([]{{if .IsStar}}*{{end}}{{.Typ}}, 0, len(a))
+	for _, o := range a {
+		res = append(res, o.{{.Name}})
+	}
+
+	return res
+}
+
+{{end}}
+
+{{end}}
